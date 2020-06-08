@@ -15,19 +15,39 @@
 
           <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukan Nama">
+            <input type="text" class="form-control @error('nama') is-invalid  @enderror" id="nama" name="nama" placeholder="Masukan Nama">
+            @error('nama')
+              <div class="invalid-feedback">
+                {{$message}}
+              </div>
+            @enderror
           </div>
           <div class="form-group">
             <label for="nrp">NRP</label>
-            <input type="text" class="form-control" id="nrp" name="nrp" placeholder="Masukan NRP">
+            <input type="number" class="form-control @error('nrp') is-invalid  @enderror" id="nrp" name="nrp" placeholder="Masukan NRP">
+            @error('nrp')
+              <div class="invalid-feedback">
+                {{$message}}
+              </div>
+            @enderror
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Masukan Email">
+            <input type="text" class="form-control @error('email') is-invalid  @enderror" id="email" name="email" placeholder="Masukan Email">
+            @error('email')
+              <div class="invalid-feedback">
+                {{$message}}
+              </div>
+            @enderror
           </div>
           <div class="form-group">
             <label for="jurusan">Jurusan</label>
-            <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Masukan Jurusan">
+            <input type="text" class="form-control @error('jurusan') is-invalid  @enderror" id="jurusan" name="jurusan" placeholder="Masukan Jurusan">
+            @error('jurusan')
+              <div class="invalid-feedback">
+                {{$message}}
+              </div>
+            @enderror
           </div>
 
           <button type="submit" class="btn btn-primary">Submit</button>

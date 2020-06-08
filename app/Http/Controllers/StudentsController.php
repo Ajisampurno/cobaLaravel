@@ -36,7 +36,20 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        student::create($request->all());   
+
+        //validation
+        $request->validate([
+        'nama' => 'required',
+        'nrp' => 'required|size:9',
+        'email' => 'email:rfc,dns',
+        'jurusan' => 'required',
+    ]);
+
+        //untuk mengambil request insert ke databases
+        student::create($request->all());       
+
+        //untuk kembali ke halaman student setelah tombol  di tekan
+        return redirect('/students/');
     }
 
     /**
