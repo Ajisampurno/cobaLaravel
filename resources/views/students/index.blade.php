@@ -9,6 +9,8 @@
 
         <h1 class="mt-5">Data Mahasiswa</h1>
 
+        <a href="/students/create" type="submit" class="btn btn-primary my-3" name="submit">Tambah Data Mahasiswa</a>
+
         <ul class="list-group">
 
         	@foreach($data_mahasiswa as $data)
