@@ -9,6 +9,12 @@
 
         <h1 class="mt-5">Data Mahasiswa</h1>
 
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+
         <a href="/students/create" type="submit" class="btn btn-primary my-3" name="submit">Tambah Data Mahasiswa</a>
 
         <ul class="list-group">

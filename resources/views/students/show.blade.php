@@ -15,8 +15,16 @@
             <h6 class="card-subtitle mb-2 text-muted">{{$student -> nrp}}</h6>
             <p class="card-text">{{$student -> email}}</p>
             <p class="card-text">{{$student -> jurusan}}</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+
+  
+                <button class="btn btn-primary">edit</button>
+
+            <form action="{{$student -> id}}" method="post" class="d-inline">
+              @method('delete')
+              @csrf
+              <button type="submit" class="btn btn-danger">hapus</button>
+            </form>
+        
           </div>
         </div>
 

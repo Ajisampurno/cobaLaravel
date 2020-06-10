@@ -49,7 +49,7 @@ class StudentsController extends Controller
         student::create($request->all());       
 
         //untuk kembali ke halaman student setelah tombol  di tekan
-        return redirect('/students/');
+        return redirect('/students/')-> with('status','Data mahasiswa berhasil di tambahkan');
     }
 
     /**
@@ -94,6 +94,7 @@ class StudentsController extends Controller
      */
     public function destroy(student $student)
     {
-        //
+        student::destroy($student -> id);
+        return redirect('/students/')-> with('status','Data mahasiswa berhasil dihapus');
     }
 }
