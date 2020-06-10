@@ -16,8 +16,7 @@
             <p class="card-text">{{$student -> email}}</p>
             <p class="card-text">{{$student -> jurusan}}</p>
 
-  
-                <button class="btn btn-primary">edit</button>
+            <a href="/students/{{$student -> id}}/edit" class="btn btn-primary">edit</a>
 
             <form action="{{$student -> id}}" method="post" class="d-inline">
               @method('delete')
