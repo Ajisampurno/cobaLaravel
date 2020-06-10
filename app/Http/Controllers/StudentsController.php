@@ -47,7 +47,6 @@ class StudentsController extends Controller
 
         //untuk mengambil request insert ke databases
         student::create($request->all());       
-
         //untuk kembali ke halaman student setelah tombol  di tekan
         return redirect('/students/')-> with('status','Data mahasiswa berhasil di tambahkan');
     }
@@ -71,7 +70,7 @@ class StudentsController extends Controller
      */
     public function edit(student $student)
     {
-        //
+        return view('students.edit',['student' => $student]);
     }
 
     /**
@@ -83,7 +82,24 @@ class StudentsController extends Controller
      */
     public function update(Request $request, student $student)
     {
-        //
+
+        //validation
+            $request->validate([
+            'nama' => 'required',
+            'nrp' => 'required|size:9',
+            'email' => 'email:rfc,dns',
+            'jurusan' => 'required',
+        ]);
+
+        student::where('id', $student -> id)
+            ->update([
+                        'nama'      => $request -> nama,
+                        'nrp'       => $request -> nrp,
+                        'email'     => $request -> email,
+                        'jurusan'   => $request -> jurusan
+                    ]);
+
+        return redirect('/students/')-> with('status','Data mahasiswa berhasil diubah');
     }
 
     /**
