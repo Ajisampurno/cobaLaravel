@@ -12,8 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+//AUTHENTIKASI
+Route::get('/', 'AuthController@login');
 //PAGES BIASA
-Route::get('/', 'PagesController@home');
+Route::post('/index', 'AuthController@home');
 Route::get('/about', 'PagesController@about');
 
 
