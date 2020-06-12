@@ -24,7 +24,7 @@ Route::get('/registrasi', 'AuthController@getregistrasi');
 Route::post('/registrasi', 'AuthController@postregistrasi');
 
 //PAGES
-Route::get('/index', 'PagesController@home');
+Route::get('/index', 'PagesController@home') ->name('home');
 Route::get('/about', 'PagesController@about');
 
 
