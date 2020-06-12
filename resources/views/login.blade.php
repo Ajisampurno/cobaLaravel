@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-md-5 ">
-				<form class="form-auth-small" action="/index" method="post">
+				<form class="form-auth-small" action="/" method="post">
 					{{csrf_field()}}
 				  <div class="form-group ">
 				    <label for="exampleInputEmail1">Email address</label>
@@ -20,7 +20,7 @@
 				    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
 				  </div>
 				  <p>Apakah anda sudah punya akun?
-				  <a href="reg" class="btn btn-secondary btn-sm d-inline">registrasi</a>
+				  <a href="{{ url('/registrasi') }}" class="btn btn-secondary btn-sm d-inline">registrasi</a>
 				</p>
 				  <button type="submit" class="btn btn-primary btn-lg">login</button>
 				</form>

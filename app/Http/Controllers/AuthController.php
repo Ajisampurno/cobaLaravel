@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -11,14 +12,39 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function login()
+
+    public function getlogin()
     {
         return view('login');
     }
 
-    public function home(request $request)
+    public function postlogin(request $request)
     {
         dd($request -> all());
+    }
+
+    public function getregistrasi()
+    {
+
+        return view('/registrasi');
+    }
+
+    public function postregistrasi(request $request)
+    {
+        //validation
+        $request->validate([
+        'nama'          => 'required',
+        'email'         => 'required|email|unique:users',
+        'password'      => 'required|size:6|confirmed'//confirmed u-> field_confirmation
+    ]);
+
+        User::create([
+            'nama' => $request -> nama,
+            'email' => $request -> email,
+            'password' => bcrypt($request -> password)
+        ]);
+
+        return redirect() -> back() -> with('status','data berhasil di tambahkan');
     }
 
     /**

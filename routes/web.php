@@ -15,9 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 
 //AUTHENTIKASI
-Route::get('/', 'AuthController@login');
-//PAGES BIASA
-Route::post('/index', 'AuthController@home');
+Route::get('/', 'AuthController@getlogin');
+
+Route::post('/', 'AuthController@postlogin');
+
+Route::get('/registrasi', 'AuthController@getregistrasi');
+
+Route::post('/registrasi', 'AuthController@postregistrasi');
+
+//PAGES
+Route::get('/index', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 
 
