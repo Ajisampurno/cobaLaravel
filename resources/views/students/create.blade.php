@@ -15,7 +15,7 @@
 
           <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" class="form-control @error('nama') is-invalid  @enderror" id="nama" name="nama" placeholder="Masukan Nama" value="{{old('nama')}}">
+            <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukan Nama" value="{{old('nama')}}">
             @error('nama')
               <div class="invalid-feedback">
                 {{$message}}
