@@ -24,6 +24,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/students')}}">Students</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('logout')}}">Logout</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -34,7 +37,7 @@
     <div class="container">
       <div class="row">
         <div class="col-10">
-          <h1 class="mt-5">Aji Sampurno</h1>
+          <h1 class="mt-5">Selamat datag {{\Auth::user()->nama}}</h1>
         </div>
       </div>
     </div>

@@ -53,7 +53,7 @@
 		            @enderror
 				  </div>
 				  <p>Apakah anda sudah punya akun?
-				  <a href="{{url('/login')}}" class="btn btn-secondary btn-sm d-inline">Login</a>
+				  <a href="{{url('/')}}" class="btn btn-secondary btn-sm d-inline">Login</a>
 				</p>
 				  <button type="submit" class="btn btn-primary btn-lg">Registrasi</button>
 				</form>

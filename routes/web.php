@@ -15,23 +15,25 @@ use Illuminate\Support\Facades\Route;
 
 
 //AUTHENTIKASI
-Route::get('/', 'AuthController@getlogin');
+Route::get('/', 'AuthController@getlogin') ->name('login') -> middleware('guest');
 
-Route::post('/', 'AuthController@postlogin');
+Route::post('/', 'AuthController@postlogin') -> middleware('guest');
 
-Route::get('/registrasi', 'AuthController@getregistrasi');
+Route::get('/registrasi', 'AuthController@getregistrasi') -> middleware('guest');
 
-Route::post('/registrasi', 'AuthController@postregistrasi');
+Route::post('/registrasi', 'AuthController@postregistrasi') -> middleware('guest');
+
+Route::get('/logout', 'AuthController@logout') -> name('logout');
 
 //PAGES
-Route::get('/index', 'PagesController@home') ->name('home');
-Route::get('/about', 'PagesController@about');
+Route::get('/index', 'PagesController@home') -> middleware('auth');
+Route::get('/about', 'PagesController@about') -> middleware('auth');
 
 
 
 //MAHASISWA
 //Route::get('/mahasiswa', 'MahasiswaController@index');
-Route::resource('mahasiswa','MahasiswaController');
+Route::resource('mahasiswa','MahasiswaController') -> middleware('auth');
 
 //STUDENTS
 /*
@@ -43,4 +45,4 @@ Route::delete('/students/{student}', 'StudentsController@destroy');
 Route::get('/students/{student}', 'StudentsController@edit');
 Route::patch('/students/{student}','StudentsController@update');
 */
-Route::resource('students','StudentsController');
+Route::resource('students','StudentsController') -> middleware('auth');
