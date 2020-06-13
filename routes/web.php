@@ -16,13 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 //AUTHENTIKASI
 Route::get('/', 'AuthController@getlogin') ->name('login') -> middleware('guest');
-
 Route::post('/', 'AuthController@postlogin') -> middleware('guest');
-
 Route::get('/registrasi', 'AuthController@getregistrasi') -> middleware('guest');
-
 Route::post('/registrasi', 'AuthController@postregistrasi') -> middleware('guest');
-
 Route::get('/logout', 'AuthController@logout') -> name('logout');
 
 //PAGES
