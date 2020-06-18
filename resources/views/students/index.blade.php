@@ -46,15 +46,17 @@
 
         <ul class="list-group">
 
-        	@foreach($data_mahasiswa as $data)
-		  <li class="list-group-item d-flex justify-content-between align-items-center">
-		    {{$data -> nama}}
-		    <a href="/students/{{$data -> id}}" class="badge badge-info">show</a>
-		  </li>
-		  @endforeach
-		</ul>
-
+            	@foreach($data_mahasiswa as $data)
+    		  <li class="list-group-item d-flex justify-content-between align-items-center">
+    		    {{$data -> nama}}
+    		    <a href="/students/{{$data -> id}}" class="badge badge-info">show</a>
+    		  </li>
+    		  @endforeach
+    		</ul>
+      {{ $data_mahasiswa->links()}}
       </div>
+
+
     </div>
   </div>
 @endsection

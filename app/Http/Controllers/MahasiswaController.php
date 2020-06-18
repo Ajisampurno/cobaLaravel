@@ -12,12 +12,19 @@ class MahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->has('cari')) {
+            $data_mahasiswa = \App\student::where('nama','LIKE','%'.$request->cari.'%')->get();
+            return view('mahasiswa.index',['data_mahasiswa'=>$data_mahasiswa]);
+        }else{
        //$data_mahasiswa = DB::table('students')->get();
         $data_mahasiswa = \App\student::all();
         return view('mahasiswa.index',['data_mahasiswa'=>$data_mahasiswa]);
+        }
     }
+
+
 
     /**
      * Show the form for creating a new resource.

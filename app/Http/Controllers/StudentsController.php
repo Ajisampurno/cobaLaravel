@@ -14,7 +14,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        $data_mahasiswa = \App\student::all();
+        $data_mahasiswa = \App\student::paginate(3);
         return view('students.index',['data_mahasiswa' => $data_mahasiswa]);
     }
 

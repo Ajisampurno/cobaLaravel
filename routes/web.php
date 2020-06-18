@@ -28,8 +28,7 @@ Route::get('/about', 'PagesController@about') -> middleware('auth');
 
 
 //MAHASISWA
-//Route::get('/mahasiswa', 'MahasiswaController@index');
-Route::resource('mahasiswa','MahasiswaController') -> middleware('auth');
+Route::get('/mahasiswa', 'MahasiswaController@index') -> middleware('auth');
 
 //STUDENTS
 /*
